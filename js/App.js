@@ -12,3 +12,7 @@ PlaceWall();
 PlaceWall();
 CreateMap();
 setInterval(MoveCharacterRandom, 500)
+
+export function RunPlayerCode() {
+
+}
