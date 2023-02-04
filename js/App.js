@@ -2,21 +2,7 @@ import {problems} from "./Math.js"
 
 var map = new Map();
 var player = new Player(map);
-var characterProgram = new characterProgram(player);
-
-
-ResetGrid();
-PlaceCharacter();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-RefreshMap();
-setInterval(MoveCharacterRandom, 500)
+var characterProgram = new CharacterProgram(player);
 
 const MathProblem = document.querySelector("#Math-Problem")
 

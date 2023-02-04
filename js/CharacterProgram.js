@@ -1,11 +1,7 @@
-import { RunPlayerCode } from "./App.js";
-import { CanCharacterMoveInDir, Fight, IsMonsterNearby, MoveCharacter } from "./Map.js";
 var specialChars = ['(', ')', '{', '}', ';']
 document.getElementById("RunCode").addEventListener("click", RunCode)
 var codeField = document.getElementById("playerCode");
-export class CharacterProgram {
-    characterProgram = {program: code, commandPosition}; 
-
+class CharacterProgram {
     constructor(player) {
         this.code = "";
         this.commandPosition = 0;
