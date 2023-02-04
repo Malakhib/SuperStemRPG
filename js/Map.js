@@ -4,13 +4,13 @@ import { CreateMap } from "./Mapcreator.js";
 const mapAccess = document.querySelector('#mapAccess')
 // var map = CreateMap();
 let displaymapAccess = null;
-export var grid2 = []
-//let grid2 = CreateMap();
+export var grid = []
+//let grid = CreateMap();
 let characterX = 4, characterY = 1;
 
 
 export function ResetGrid(){
-    grid2 = CreateMap();
+    grid = CreateMap();
 }
 //Resetgrid();
 
@@ -22,10 +22,10 @@ export function RefreshMap() {
         mapAccess.removeChild(displaymapAccess);
     displaymapAccess = document.createElement("div");
         
-    for(let i = 0; i < grid2.length; i++){
+    for(let i = 0; i < grid.length; i++){
         rowString = "";
-        for(let j = 0; j < grid2[0].length; j++){
-            rowString += grid2[i][j]; 
+        for(let j = 0; j < grid[0].length; j++){
+            rowString += grid[i][j]; 
         }
         let row = document.createElement("div");
         row.classList.add("mapAccessRow");
@@ -39,7 +39,7 @@ export function RefreshMap() {
 export function PlaceCharacter() {
     let rowcoord = Math.floor(Math.random() * 5)
     let colcoord = Math.floor(Math.random() * 10)
-    grid2[rowcoord][colcoord] = "c"
+    grid[rowcoord][colcoord] = "c"
     characterX = colcoord;
     characterY = rowcoord;
 }
@@ -47,40 +47,40 @@ export function PlaceCharacter() {
 export function PlaceWall() {
     let rowcoord = Math.floor(Math.random() * 5)
     let colcoord = Math.floor(Math.random() * 10)
-    if (grid2[rowcoord][colcoord] != "_") {
+    if (grid[rowcoord][colcoord] != "_") {
         PlaceWall();
         return;
     }
-    grid2[rowcoord][colcoord] = "s"
+    grid[rowcoord][colcoord] = "s"
 }
 
-export function Movecharacter(direction) {
+export function MoveCharacter(direction) {
     if (!CanCharacterMoveInDir(direction)) {
         return;
     }
     if (direction == "up") {
         if (characterY != 0) {
-            grid2[characterY][characterX] = "_";
+            grid[characterY][characterX] = "_";
             characterY--;
-            grid2[characterY][characterX] = "c";
+            grid[characterY][characterX] = "c";
         }
     } else if (direction == "down") {
-        if (characterY != grid2.length - 1) {
-            grid2[characterY][characterX] = "_";
+        if (characterY != grid.length - 1) {
+            grid[characterY][characterX] = "_";
             characterY++;
-            grid2[characterY][characterX] = "c";
+            grid[characterY][characterX] = "c";
         }
     } else if (direction == "left") {
         if (characterX != 0) {
-            grid2[characterY][characterX] = "_";
+            grid[characterY][characterX] = "_";
             characterX--;
-            grid2[characterY][characterX] = "c";
+            grid[characterY][characterX] = "c";
         }
     } else if (direction == "right") {
-        if (characterX != grid2[characterY].length - 1) {
-            grid2[characterY][characterX] = "_";
+        if (characterX != grid[characterY].length - 1) {
+            grid[characterY][characterX] = "_";
             characterX++;
-            grid2[characterY][characterX] = "c";
+            grid[characterY][characterX] = "c";
         }
     }
     RefreshMap();
@@ -96,22 +96,22 @@ export function IsMonsterNearby() {
 
 export function CanCharacterMoveInDir(direction) {
     if (direction == "up") {
-        if (characterY != 0 && !IsMovementBlocker(grid2[characterY - 1][characterX])) {
+        if (characterY != 0 && !IsMovementBlocker(grid[characterY - 1][characterX])) {
             return true;
         }
         return false;
     } else if (direction == "down") {
-        if (characterY != grid2.length - 1 && !IsMovementBlocker(grid2[characterY + 1][characterX])) {
+        if (characterY != grid.length - 1 && !IsMovementBlocker(grid[characterY + 1][characterX])) {
             return true;
         }
         return false;
     } else if (direction == "left") {
-        if (characterX != 0 && !IsMovementBlocker(grid2[characterY][characterX - 1])) {
+        if (characterX != 0 && !IsMovementBlocker(grid[characterY][characterX - 1])) {
             return true;
         }
         return false;
     } else if (direction == "right") {
-        if (characterX != grid2[characterY].length - 1 && !IsMovementBlocker(grid2[characterY][characterX + 1])) {
+        if (characterX != grid[characterY].length - 1 && !IsMovementBlocker(grid[characterY][characterX + 1])) {
             return true;
         }
         return false;
@@ -129,11 +129,11 @@ export function IsMovementBlocker(contents) {
 export function MoveCharacterRandom() {
     let num = Math.floor(Math.random() * 4);
     if (num == 0)
-        Movecharacter("up");
+        MoveCharacter("up");
     else if (num == 1)
-        Movecharacter("down");
+        MoveCharacter("down");
     else if (num == 2)
-        Movecharacter("left");
+        MoveCharacter("left");
     else if (num == 3)
-        Movecharacter("right");
+        MoveCharacter("right");
 }
