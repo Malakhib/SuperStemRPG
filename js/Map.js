@@ -1,5 +1,7 @@
-const map = document.querySelector('#map')
-let displayMap = null;
+import createMap from "./MapCreator.js";
+const mapAccess = document.querySelector('#mapAccess')
+var map = createMap();
+let displaymapAccess = null;
 export let grid = []
 let characterX = 0, characterY = 0;
 
@@ -15,10 +17,10 @@ export function ResetGrid() {
 ResetGrid();
 
 
-export function CreateMap() {
-    if (displayMap != null)
-        map.removeChild(displayMap);
-    displayMap = document.createElement("div");
+export function CreatemapAccess() {
+    if (displaymapAccess != null)
+        mapAccess.removeChild(displaymapAccess);
+    displaymapAccess = document.createElement("div");
     for (let i = 0; i < grid.length; i++) {
         let rowText = ""
 
@@ -26,11 +28,11 @@ export function CreateMap() {
             rowText += grid[i][j] + " ";
         }
         let row = document.createElement("div");
-        row.classList.add("mapRow");
+        row.classList.add("mapAccessRow");
         row.innerHTML = rowText;
-        displayMap.appendChild(row);
+        displaymapAccess.appendChild(row);
     }
-    map.appendChild(displayMap);
+    mapAccess.appendChild(displaymapAccess);
 }
 
 export function PlaceCharacter() {
@@ -68,7 +70,7 @@ export function MoveCharacter(direction) {
         }
     }
     console.log(characterY, characterX);
-    CreateMap();
+    CreatemapAccess();
 }
 
 export function MoveCharacterRandom() {
