@@ -1,4 +1,5 @@
 import {grid, ResetGrid, RefreshMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
+import {problems} from "./Math.js"
 
 ResetGrid();
 PlaceCharacter();
