@@ -14,6 +14,7 @@ export class GameState{
          */
         player: {
             character,
+            health,
             x,
             y 
         },
@@ -37,11 +38,12 @@ export class GameState{
 
     CreateNewGame(){
         //Setup Map
-        this.enemiesInstance.SetEnemy({character: ['S'], x: 1, y: 5});
+        this.enemiesInstance.SetEnemy({character: ['S'], health: 5, x: 1, y: 5});
         var map = CreateMap();
         var character = this.playerInstance.GetCharacter();
         character.x = map.length / 2;
         character.y = 1;
+        character.health = 20;
         const enemies = this.enemiesInstance.GetEnemies();
         gamestate.enemies = enemies;
         gamestate.player = character;
