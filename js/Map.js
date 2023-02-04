@@ -37,16 +37,16 @@ export function RefreshMap() {
 }
 
 export function PlaceCharacter() {
-    let rowcoord = Math.floor(Math.random() * 5)
-    let colcoord = Math.floor(Math.random() * 10)
+    let rowcoord = Math.floor((Math.random() + 1) * 5)
+    let colcoord = Math.floor((Math.random() + 1) * 10)
     grid[rowcoord][colcoord] = "c"
     characterX = colcoord;
     characterY = rowcoord;
 }
 
 export function PlaceWall() {
-    let rowcoord = Math.floor(Math.random() * 5)
-    let colcoord = Math.floor(Math.random() * 10)
+    let rowcoord = Math.floor((Math.random() + 1) * 5)
+    let colcoord = Math.floor((Math.random() + 1) * 10)
     if (grid[rowcoord][colcoord] != "_") {
         PlaceWall();
         return;
