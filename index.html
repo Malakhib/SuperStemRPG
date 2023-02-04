@@ -23,9 +23,12 @@
       <div class="col col-7 d-flex">
         <div class="card flex-fill">
           <div class="card-body flex-fill">
-            <h3 style="font-size: 20px">Player Program</h3>
-			<div class="Input" id="playerCode">
-            </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">
+                  <h3 class="pb-2" style="font-size: 20px" id="inputTitle">Player Program</h3>
+                </label>
+                <textarea type="input" class="form-control" style="resize: none;" id="playerCode" placeholder="Write your program here" onclick="updateCodeInput()" rows="10"></textarea>
+              </div>
           </div>
         </div>
       </div>
@@ -60,6 +63,12 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/App.js" type="module"></script>
+    <script src="./js/App.js" type="module"></script>
+    <script type="text/javascript" src="./js/CharacterProgram.js"></script>
+    <script>
+        function updateCodeInput(){
+            document.getElementById("playerCode").value = "test";
+        }
+    </script>
   </body>
 </html>

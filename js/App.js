@@ -1,8 +1,6 @@
-import {CreateMap, placeCharacter, refreshGrid} from "./map.js";
+import {grid, ResetGrid, CreateMap, PlaceCharacter,MoveCharacterRandom} from "./map.js";
 
-setInterval(placeCharacter, 1000)
-setInterval(refreshGrid, 1000)
-placeCharacter()
+ResetGrid();
+PlaceCharacter();
 CreateMap();
-
-
+setInterval(MoveCharacterRandom, 500)
