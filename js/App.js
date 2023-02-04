@@ -1,8 +1,5 @@
-import {grid, ResetGrid, CreatemapAccess,RenderMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
+import { ResetGrid, PlaceCharacter, PlaceWall,MoveCharacterRandom, RefreshMap} from "./map.js";
 import {problems} from "./Math.js"
-import { CreateMap, MapSetup } from "./MapCreator.js";
-import { GetCharacter, SetCharacter } from "Player.js";
-import { PutCharacterOnMap } from "./Player.js";
 
 
 ResetGrid();
