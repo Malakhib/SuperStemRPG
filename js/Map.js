@@ -1,6 +1,4 @@
-import createMap from "./MapCreator.js";
 const mapAccess = document.querySelector('#mapAccess')
-var map = createMap();
 let displaymapAccess = null;
 export let grid = []
 let characterX = 0, characterY = 0;
@@ -17,7 +15,7 @@ export function ResetGrid() {
 ResetGrid();
 
 
-export function CreatemapAccess() {
+export function RenderMap() {
     if (displaymapAccess != null)
         mapAccess.removeChild(displaymapAccess);
     displaymapAccess = document.createElement("div");
