@@ -1,18 +1,8 @@
-import {grid, ResetGrid, RefreshMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
 import {problems} from "./Math.js"
 
-ResetGrid();
-PlaceCharacter();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-PlaceWall();
-RefreshMap();
-setInterval(MoveCharacterRandom, 500)
+var map = new Map();
+var player = new Player(map);
+var characterProgram = new CharacterProgram(player);
 
 const MathProblem = document.querySelector("#Math-Problem")
 
