@@ -43,7 +43,21 @@ export function PlaceCharacter() {
     characterY = rowcoord;
 }
 
+export function PlaceWall() {
+    let rowcoord = Math.floor(Math.random() * 5)
+    let colcoord = Math.floor(Math.random() * 10)
+    if (grid[rowcoord][colcoord] != "_") {
+        PlaceWall();
+        return;
+    }
+    grid[rowcoord][colcoord] = "W"
+}
+
 export function MoveCharacter(direction) {
+    if (!CanCharacterMoveInDir(direction)) {
+        console.log("Can't move " + direction + "!");
+        return;
+    }
     if (direction == "up") {
         if (characterY != 0) {
             grid[characterY][characterX] = "_";
@@ -71,6 +85,46 @@ export function MoveCharacter(direction) {
     }
     console.log(characterY, characterX);
     CreatemapAccess();
+}
+
+export function Fight() {
+    //Fights an adjacent character
+}
+
+export function IsMonsterNearby() {
+    //returns if a monster is nearby
+}
+
+export function CanCharacterMoveInDir(direction) {
+    if (direction == "up") {
+        if (characterY != 0 && !IsMovementBlocker(grid[characterY - 1][characterX])) {
+            return true;
+        }
+        return false;
+    } else if (direction == "down") {
+        if (characterY != grid.length - 1 && !IsMovementBlocker(grid[characterY + 1][characterX])) {
+            return true;
+        }
+        return false;
+    } else if (direction == "left") {
+        if (characterX != 0 && !IsMovementBlocker(grid[characterY][characterX - 1])) {
+            return true;
+        }
+        return false;
+    } else if (direction == "right") {
+        if (characterX != grid[characterY].length - 1 && !IsMovementBlocker(grid[characterY][characterX + 1])) {
+            return true;
+        }
+        return false;
+    }
+    return false;
+}
+
+
+export function IsMovementBlocker(contents) {
+    if (contents == "W")
+        return true;
+    return false;
 }
 
 export function MoveCharacterRandom() {
