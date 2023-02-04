@@ -5,9 +5,10 @@ const mapAccess = document.querySelector('#mapAccess')
 // var map = CreateMap();
 let displaymapAccess = null;
 export var grid = []
+const wall = "#";
+const floor = "_";
 //let grid = CreateMap();
 let characterX = 4, characterY = 1;
-
 
 export function ResetGrid(){
     grid = CreateMap();
