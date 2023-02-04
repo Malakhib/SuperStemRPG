@@ -1,8 +1,11 @@
 import {problems} from "./Math.js"
+import {Player} from "./Player.js"
+import {Map} from "./Map.js"
+import { CharacterProgram } from "./CharacterProgram.js";
 
-var map = new Map();
-var player = new Player(map);
-var characterProgram = new CharacterProgram(player);
+let map = new Map();
+let player = new Player(map);
+let characterProgram = new CharacterProgram(player);
 
 const MathProblem = document.querySelector("#Math-Problem")
 

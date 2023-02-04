@@ -1,7 +1,7 @@
 var specialChars = ['(', ')', '{', '}', ';']
 document.getElementById("RunCode").addEventListener("click", RunCode)
 var codeField = document.getElementById("playerCode");
-class CharacterProgram {
+export class CharacterProgram {
     constructor(player) {
         this.code = "";
         this.commandPosition = 0;

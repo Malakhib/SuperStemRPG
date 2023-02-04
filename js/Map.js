@@ -1,13 +1,14 @@
+import { CreateMap } from "./MapCreator.js";
 const mapAccess = document.querySelector('#mapAccess')
 
-class Map {
+export class Map {
 
     constructor() {
-        ResetGrid();
+        this.ResetGrid();
     }
 
     ResetGrid() {
-        grid = CreateMap();
+        this.grid = CreateMap();
     }
 
     RefreshMap() {

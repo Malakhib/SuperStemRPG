@@ -1,4 +1,4 @@
-class Player{
+export class Player{
     /**
     * character array will be legs, toroso, head
     */
