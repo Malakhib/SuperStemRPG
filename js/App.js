@@ -1,4 +1,4 @@
-import {grid, ResetGrid, RefreshMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
+import {ResetGrid, RefreshMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./Map.js";
 
 ResetGrid();
 PlaceCharacter();
