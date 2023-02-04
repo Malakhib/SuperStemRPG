@@ -1,5 +1,9 @@
-import {grid, ResetGrid, CreatemapAccess, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
+import {grid, ResetGrid, CreatemapAccess,RenderMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
 import {problems} from "./Math.js"
+import { CreateMap, MapSetup } from "./MapCreator.js";
+import { GetCharacter, SetCharacter } from "Player.js";
+import { PutCharacterOnMap } from "./Player.js";
+
 
 ResetGrid();
 PlaceCharacter();
@@ -11,9 +15,8 @@ PlaceWall();
 PlaceWall();
 PlaceWall();
 PlaceWall();
-CreatemapAccess();
+RefreshMap();
 setInterval(MoveCharacterRandom, 500)
-
 
 const MathProblem = document.querySelector("#Math-Problem")
 
@@ -75,8 +78,6 @@ textbox.addEventListener("keypress", function(event) {
 });
 
 submitbutton.addEventListener('click', submitAnswer)
-
-
 
 export function RunPlayerCode() {
 

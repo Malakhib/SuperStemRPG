@@ -1,4 +1,4 @@
-export function createMap(){
+export function CreateMap(){
     return [
         ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'], 
         ['#', '_', '_', '_', '_', '_', '_', '_', '_', '#'],
@@ -23,4 +23,11 @@ export function createMap(){
         ['#', '_', '_', '_', '_', '_', '_', '_', '_', '#'],
         ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
     ]
+}
+
+export function MapSetup(map, enemies){
+    for(enemy of enemies){
+        map[enemy.x][enemy.y] = enemy.character;
+    }
+    return map;
 }

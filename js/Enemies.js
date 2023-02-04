@@ -1,11 +1,23 @@
-var enemy = {
-    character,
-    x,
-    y
-};
+export class Enemies{
 
-var enemies;
+    Enemies(){
+        enemies = [];
+    }
 
-function SetEnemy(character, x, y){
-    enemies.push({character, x, y});
+    enemy = {
+        character,
+        health,
+        x,
+        y
+    };
+
+    enemies;
+
+    SetEnemy(character, x, y){
+        enemies.push({character, x, y});
+    }
+
+    GetEnemies(){
+        return enemies;
+    }  
 }
