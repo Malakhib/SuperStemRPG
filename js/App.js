@@ -3,7 +3,6 @@ import { CreateMap, MapSetup } from "./MapCreator.js";
 import { GetCharacter, SetCharacter } from "Player.js";
 import { PutCharacterOnMap } from "./Player.js";
 
-
 ResetGrid();
 PlaceCharacter();
 PlaceWall();
@@ -14,7 +13,7 @@ PlaceWall();
 PlaceWall();
 PlaceWall();
 PlaceWall();
-RenderMap();
+RefreshMap();
 setInterval(MoveCharacterRandom, 500)
 
 

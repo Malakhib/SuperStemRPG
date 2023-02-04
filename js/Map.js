@@ -1,4 +1,7 @@
+
+import {createMap} from "./MapCreator.js";
 const mapAccess = document.querySelector('#mapAccess')
+// var map = createMap();
 let displaymapAccess = null;
 export let grid = []
 let characterX = 0, characterY = 0;
@@ -15,7 +18,7 @@ export function ResetGrid() {
 ResetGrid();
 
 
-export function RenderMap() {
+export function RefreshMap() {
     if (displaymapAccess != null)
         mapAccess.removeChild(displaymapAccess);
     displaymapAccess = document.createElement("div");
@@ -82,7 +85,7 @@ export function MoveCharacter(direction) {
         }
     }
     console.log(characterY, characterX);
-    CreatemapAccess();
+    RefreshMap();
 }
 
 export function Fight() {

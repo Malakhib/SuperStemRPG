@@ -28,7 +28,7 @@
                   <h3 class="pb-2" style="font-size: 20px" id="inputTitle">Player Program</h3>
                 </label>
                 <textarea type="input" class="form-control" style="resize: none;" id="playerCode" placeholder="Write your program here" onclick="" rows="14"></textarea>
-                <button type="button" style="position:absolute; left: 50%; width: 300px;;" class="btn btn-secondary" onclick="RunCode()">RunCode</button>
+                <button type="button" id="RunCode" style="position:absolute; left: 50%; width: 300px;;" class="btn btn-secondary">RunCode</button>
               </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
       <div class="col col-5">
         <div class="card">
           <div class="card-body">
-            <div class="lh-1" id="map"></div>
+            <div class="lh-1" id="mapAccess"></div>
           </div>
           <div class="card-footer text-center">
             <span class="badge bg-secondary pt-3">
@@ -65,7 +65,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/App.js" type="module"></script>
-    <script type="text/javascript" src="./js/CharacterProgram.js"></script>
+    <script type="module" src="./js/CharacterProgram.js"></script>
     <script>
         function updateCodeInput(){
             document.getElementById("playerCode").value = "test";
