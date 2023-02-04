@@ -1,4 +1,4 @@
-function createMap(){
+export function createMap(){
     return [
         ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'], 
         ['#', '_', '_', '_', '_', '_', '_', '_', '_', '#'],

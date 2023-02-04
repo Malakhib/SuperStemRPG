@@ -1,4 +1,4 @@
-import createMap from "./MapCreator.js";
+import {createMap} from "./MapCreator.js";
 const mapAccess = document.querySelector('#mapAccess')
 var map = createMap();
 let displaymapAccess = null;

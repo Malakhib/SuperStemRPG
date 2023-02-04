@@ -1,4 +1,4 @@
-import {grid, ResetGrid, CreateMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
+import {grid, ResetGrid, CreatemapAccess, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
 
 ResetGrid();
 PlaceCharacter();
@@ -10,7 +10,7 @@ PlaceWall();
 PlaceWall();
 PlaceWall();
 PlaceWall();
-CreateMap();
+CreatemapAccess();
 setInterval(MoveCharacterRandom, 500)
 
 export function RunPlayerCode() {
