@@ -1,4 +1,5 @@
 const mapAccess = document.querySelector('#mapAccess')
+
 class Map {
 
     constructor() {
