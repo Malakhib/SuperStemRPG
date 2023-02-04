@@ -84,7 +84,6 @@ export function MoveCharacter(direction) {
             grid[characterY][characterX] = "C";
         }
     }
-    console.log(characterY, characterX);
     RefreshMap();
 }
 
