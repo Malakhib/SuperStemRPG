@@ -56,7 +56,6 @@ export function PlaceWall() {
 
 export function Movecharacter(direction) {
     if (!CanCharacterMoveInDir(direction)) {
-        console.log("can't move " + direction + "!");
         return;
     }
     if (direction == "up") {

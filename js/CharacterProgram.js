@@ -1,68 +1,76 @@
 import { RunPlayerCode } from "./App.js";
-import { CanCharacterMoveInDir, IsMonsterNearby } from "./Map.js";
+import { CanCharacterMoveInDir, Fight, IsMonsterNearby, MoveCharacter } from "./Map.js";
+var specialChars = ['(', ')', '{', '}', ';']
+document.getElementById("RunCode").addEventListener("click", RunCode)
+var codeField = document.getElementById("playerCode");
+export class CharacterProgram {
+    characterProgram = {program: code, commandPosition}; 
 
-document.getElementById("RunCode").addEventListener("click", RunCode);
-
-const codeField = document.getElementById("playerCode");
-const specialChars = ['(', ')', '{', '}', ';']
-let code = "";
-let commandPosition = 0;
-
-function RunCode() {
-    commandPosition = 0;
-    code = FormatCode(codeField.value);
-    RunPlayerCode();
-}
-
-function FormatCode(newcode) {
-    return newcode.replace(/ /g, "").replace(/\n/g, "").toLowerCase();
-}
-
-export function GetPlayerCommand() {
-    let commandString = code.substring(commandPosition, GetCommandLength(commandPosition));
-    commandPosition += commandString.length;
-    MoveCommandPositionToNextString();
-    if (commandString == "if") {
-        return GetPlayerConditional();
+    constructor() {
+        this.code = "";
+        this.commandPosition = 0;
     }
 
-    return commandString;
+    RunCode() {
+        commandPosition = 0;
+        code = FormatCode(codeField.value);
+    }
 
-}
+    FormatCode(newcode) {
+        return newcode.replace(/ /g, "").replace(/\n/g, "").toLowerCase();
+    }
 
-export function GetPlayerConditional() {
-    let commandString = code.substring(commandPosition, commandPosition + GetCommandLength(commandPosition));
-    commandPosition += commandString.length;
-    MoveCommandPositionToNextString();
-    if (commandString == "canmove") {
-        if (CanCharacterMoveInDir(GetPlayerArgument())) {
-            return true;
+    GetPlayerCommand() {
+        let commandString = code.substring(commandPosition, GetCommandLength(commandPosition));
+        commandPosition += commandString.length;
+        MoveCommandPositionToNextString();
+        if (commandString == "if") {
+            return GetPlayerConditional();
+        } else if (commandString == "move") {
+            MoveCharacter(this.GetPlayerArgument());
+            return "move";
+        } else if (commandString == "fight") {
+            Fight();
+            return "fight";
         }
-    } else if (commandString == "IsMonsterNearby") {
-        return IsMonsterNearby();
+
+        return commandString;
+
     }
-    return false;
-}
 
-export function GetPlayerArgument() {
-    let commandString = code.substring(commandPosition, commandPosition + GetCommandLength(commandPosition));
-    commandPosition += commandString.length;
-    return commandString;
-}
-
-function MoveCommandPositionToNextString() {
-    while (specialChars.includes(code.charAt(commandPosition))) {
-        commandPosition++;
+    GetPlayerConditional() {
+        let commandString = code.substring(commandPosition, commandPosition + GetCommandLength(commandPosition));
+        commandPosition += commandString.length;
+        MoveCommandPositionToNextString();
+        if (commandString == "canmove") {
+            if (CanCharacterMoveInDir(GetPlayerArgument())) {
+                return true;
+            }
+        } else if (commandString == "hasenemy") {
+            return IsMonsterNearby();
+        }
+        return false;
     }
-}
 
-function GetCommandLength() {
-    let length = code.length - 1 - commandPosition;
-    for (let i = 0; i < specialChars.length; i++) {
-        if (code.indexOf(specialChars[i], commandPosition) != -1) {
-            length = Math.min(length, code.indexOf(specialChars[i], commandPosition) - commandPosition);
+    GetPlayerArgument() {
+        let commandString = code.substring(commandPosition, commandPosition + GetCommandLength(commandPosition));
+        commandPosition += commandString.length;
+        return commandString;
+    }
+
+    MoveCommandPositionToNextString() {
+        while (specialChars.includes(code.charAt(commandPosition))) {
+            commandPosition++;
         }
     }
 
-    return length;
+    GetCommandLength() {
+        let length = code.length - 1 - commandPosition;
+        for (let i = 0; i < specialChars.length; i++) {
+            if (code.indexOf(specialChars[i], commandPosition) != -1) {
+                length = Math.min(length, code.indexOf(specialChars[i], commandPosition) - commandPosition);
+            }
+        }
+        return length;
+    }
 }
