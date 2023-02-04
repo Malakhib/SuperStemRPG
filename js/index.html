@@ -41,23 +41,34 @@
             <div class="lh-1" id="mapAccess"></div>
           </div>
           <div class="card-footer text-center">
-            <span class="badge bg-secondary pt-3">
+            <button class="badge bg-secondary pt-3" id = "ArithmeticButton">
                 <h4>1</h4>
-                Arithmatic
-            </span>
-            <span class="badge bg-secondary pt-3 px-3">
+                Arithmetic
+            </button>
+            <button class="badge bg-secondary pt-3 px-3" id = "AlgebraButton">
                 <h4>2</h4>
                 Algebra
-            </span>
-            <span class="badge bg-secondary pt-3">
+            </button>
+            <button class="badge bg-secondary pt-3" id = "GeometryButton">
                 <h4>3</h4>
                 Geometry
-            </span>
-            <span class="badge bg-secondary pt-3 px-4">
+            </button>
+            <button class="badge bg-secondary pt-3 px-4" id = "TrigButton">
                 <h4>4</h4>
                 Trig
-            </span>
+            </button>
           </div>
+        </div>
+        <div class="card">
+          <div id = "Math-Problem">
+          </div>
+          <div>
+            <label for="AnswerBox">Your Answer:</label> 
+            <input id = "Answer-Box" name = "Answer-Box">
+            <button id = "MathSubmitButton">Submit</button>
+          </div>
+          <div id = "MathResult"></div>
+          
         </div>
       </div>
     </div>
