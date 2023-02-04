@@ -2,7 +2,7 @@ export class Player{
     /**
     * character array will be legs, toroso, head
     */
-    player = {character: ['H', 'O', '*'], x, y};
+    player = {character: ['H', 'O', '*'], health, x, y};
     /**
      * @param character the ascii you want to use as your character 
      */

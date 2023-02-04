@@ -6,6 +6,7 @@ export class Enemies{
 
     enemy = {
         character,
+        health,
         x,
         y
     };
