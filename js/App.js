@@ -1,5 +1,9 @@
-import {grid, ResetGrid, RefreshMap, PlaceCharacter, PlaceWall,MoveCharacterRandom} from "./map.js";
 import {problems} from "./Math.js"
+
+var map = new Map();
+var player = new Player(map);
+var characterProgram = new characterProgram(player);
+
 
 ResetGrid();
 PlaceCharacter();

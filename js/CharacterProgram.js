@@ -6,9 +6,10 @@ var codeField = document.getElementById("playerCode");
 export class CharacterProgram {
     characterProgram = {program: code, commandPosition}; 
 
-    constructor() {
+    constructor(player) {
         this.code = "";
         this.commandPosition = 0;
+        this.player = player;
     }
 
     RunCode() {
@@ -27,10 +28,10 @@ export class CharacterProgram {
         if (commandString == "if") {
             return GetPlayerConditional();
         } else if (commandString == "move") {
-            MoveCharacter(this.GetPlayerArgument());
+            player.MoveCharacter(this.GetPlayerArgument());
             return "move";
         } else if (commandString == "fight") {
-            Fight();
+            player.Fight();
             return "fight";
         }
 
@@ -43,11 +44,11 @@ export class CharacterProgram {
         commandPosition += commandString.length;
         MoveCommandPositionToNextString();
         if (commandString == "canmove") {
-            if (CanCharacterMoveInDir(GetPlayerArgument())) {
+            if (player.CanCharacterMoveInDir(GetPlayerArgument())) {
                 return true;
             }
         } else if (commandString == "hasenemy") {
-            return IsMonsterNearby();
+            return player.IsMonsterNearby();
         }
         return false;
     }
